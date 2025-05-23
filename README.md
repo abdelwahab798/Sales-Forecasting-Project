@@ -1,117 +1,98 @@
-🛒 Sales Forecasting and Demand Prediction
-📌 Project Overview
-This project aims to build a robust machine learning pipeline to forecast product demand based on historical sales data. Accurate demand forecasting helps businesses make data-driven decisions in inventory management, marketing strategies, and staffing.
+# 🛒 Sales Forecasting and Demand Prediction
 
-🎯 Why This Project?
-Inaccurate demand forecasting can lead to:
+## 📌 Project Overview  
+This project builds a robust machine learning pipeline to forecast product demand using historical sales data. Accurate demand forecasting enables businesses to make data-driven decisions related to inventory, marketing strategies, and staffing.
 
-Overstocking or Understocking → Causing financial losses and inefficiencies
+---
 
-Inefficient Marketing → Misallocation of promotional budgets
+## 🎯 Why This Project?  
+Inaccurate demand forecasting can cause:
 
-Operational Disruptions → Misjudging demand can harm the supply chain
+- **Overstocking or Understocking** → Financial losses and inefficiencies  
+- **Inefficient Marketing** → Misallocation of promotional budgets  
+- **Operational Disruptions** → Supply chain mismanagement  
 
-✅ Project Outcomes
-Improved Forecast Accuracy
+---
 
-Optimized Inventory Management
+## ✅ Project Outcomes  
+- Improved Forecast Accuracy  
+- Optimized Inventory Management  
+- Enhanced Business Strategy  
 
-Enhanced Business Strategy
+---
 
-🚀 Project Pipeline
-We followed a complete data science workflow:
+## 🚀 Project Pipeline  
+We followed a comprehensive data science workflow:
 
-Data Visualization
+- **Data Visualization**  
+  Explored relationships between features using visual tools.
 
-Explored relationships between columns using visual analysis.
+- **Merging & Cleaning**  
+  Merged datasets, fixed data types, handled missing values, extracted new date-based features, calculated `units_sold`, and treated outliers.
 
-Merging & Cleaning
+- **Exploratory Data Analysis (EDA)**  
+  Analyzed relationships between features and the target variable.
 
-Merged datasets, fixed data types, and handled missing values.
+- **Feature Engineering**  
+  Created features like rolling mean, rolling standard deviation, etc.
 
-Extracted new features from date columns and calculated units_sold.
+- **Statistical Testing**  
+  Applied ANOVA and P-values to remove irrelevant features.
 
-Detected and treated outliers.
+- **Model Building & Evaluation**  
 
-EDA (Exploratory Data Analysis)
+| Model             | MAE   | R²      | RMSE  |
+|-------------------|-------|---------|-------|
+| Prophet           | 8.31  | —       | —     |
+| Random Forest     | 7.36  | 0.9917  | 8.66  |
+| XGBoost           | 7.25  | 0.9920  | 8.49  |
+| Linear Regression | 7.49  | 0.9917  | 8.69  |
 
-Analyzed relationships between features and the target.
+- **Best Model after Tuning:**  
+  - MAE: 7.20  
+  - RMSE: 8.47  
+  - R²: 0.9921  
 
-Feature Engineering
+- **Model Selection & Saving**  
+  Selected XGBoost as the final model.
 
-Created features like rolling mean, rolling std, etc.
+- **MLflow Integration**  
+  Tracked experiments and model versions.
 
-Statistical Testing
+- **Deployment**  
+  Deployed with FastAPI and an interactive HTML form allowing users to select product, store, and date for forecasts.
 
-Used ANOVA and P-Values to identify and drop irrelevant features.
+- **Dynamic Dashboard**  
+  Created an interactive dashboard to explore feature relationships dynamically.
 
-Model Building
-Trained 4 models:
+---
 
-Prophet
+## 📂 Project Structure & Execution Order  
+Run the project components in this order:
 
-MAE: 8.31
+1. `project-milestone1 (1)/` – Initial planning (no code to run)  
+2. `eda/` – Exploratory Data Analysis  
+3. `feature_eng/` – Feature Engineering & Target Creation  
+4. `dash/` – Interactive Dashboard (run `app.py`)  
+5. `timeSeries/` – Prophet Model (time series forecasting)  
+6. `model1/` – Random Forest Model  
+7. `model2/` – XGBoost Model  
+8. `model3/` – Linear Regression Model  
+9. `demployment/` – FastAPI Deployment with MLflow & HTML Form (`form.html`)  
 
-Random Forest
+---
 
-MAE: 7.36 | R²: 0.9917 | RMSE: 8.66
+## 👥 Team Members & Roles
 
-XGBoost
+| Name                 | Role(s) & Responsibilities                                                                                                  |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| **Abdelwahab Amr** *(Team Leader)* | Led the team; coordinated all phases; advanced feature engineering; developed ML models; managed deployment and API integration. |
+| **Hatem Tamer**       | Performed EDA, data preprocessing; contributed to ML model development and tuning.                                           |
+| **Bakhom Hany**       | Designed and implemented feature engineering; created predictive variables; managed project documentation.                   |
+| **Khaled Hany**       | Assisted with EDA and data visualization; supported data cleaning efforts.                                                   |
+| **Mohamed Salah**     | Developed dynamic dashboard; integrated MLflow for experiment tracking; ensured smooth workflow between EDA and deployment.  |
+| **Omar Abdelrahman**  | Conducted EDA; generated detailed project reports summarizing findings and model performance.                                 |
 
-MAE: 7.25 | R²: 0.9920 | RMSE: 8.49
-
-✅ Best Model after Tuning
-
-Tuned MAE: 7.20, RMSE: 8.47, R²: 0.9921
-
-Linear Regression
-
-MAE: 7.49 | R²: 0.9917 | RMSE: 8.69
-
-Model Selection & Saving
-
-Selected XGBoost as the final model and saved it.
-
-MLflow Integration
-
-Tracked all experiments using MLflow.
-
-Deployment with FastAPI + HTML Form
-
-Deployed the model using FastAPI and built a cool interactive HTML form that allows users to select product, store, and date to generate a forecast easily.
-
-Dynamic Dashboard
-
-Built an interactive dashboard for exploring feature relationships.
-
-📂 Project Structure & Execution Order
-To run the full project, follow this order:
-
-project-milestone1 (1)/ → Initial project planning (no code to run)
-
-eda/ → Exploratory Data Analysis
-
-feature_eng/ → Feature engineering & target creation
-
-dash/ → Interactive dashboard (run app.py)
-
-timeSeries/ → Prophet model (time series forecasting)
-
-model1/ → Random Forest
-
-model2/ → XGBoost
-
-model3/ → Linear Regression
-
-demployment/ → FastAPI deployment with MLflow and HTML form (form.html)
-
-| Name                               | Role(s) & Responsibilities                                                                                                                                                                                              |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Abdelwahab Amr** *(Team Leader)* | Led the team, coordinated all project phases, performed advanced feature engineering, developed machine learning models, managed model deployment using FastAPI, and integrated the API with the interactive front-end. |
-| **Hatem Tamer**                    | Conducted exploratory data analysis (EDA), handled data preprocessing, contributed to model development and tuning, and supported validation of machine learning models.                                                |
-| **Bakhom Hany**                    | Designed and implemented feature engineering techniques, created new predictive variables, managed project documentation, and ensured clear communication of technical details.                                         |
-| **Khaled Hany**                    | Assisted with exploratory data analysis, generated insightful visualizations to uncover data patterns, and supported data cleaning efforts.                                                                             |
-| **Mohamed Salah**                  | Developed the dynamic dashboard for interactive data visualization, integrated MLflow to track and manage experiments, and ensured smooth workflow between data exploration and deployment.                             |
-| **Omar Abdelrahman**               | Performed exploratory data analysis (EDA) and generated detailed project reports, summarizing findings and model performance to facilitate informed decision-making.                                                    |
+---
 
 
