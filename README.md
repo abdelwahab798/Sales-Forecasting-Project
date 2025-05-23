@@ -78,7 +78,7 @@ Run the project components in this order:
 6. `model1/` – Random Forest Model  
 7. `model2/` – XGBoost Model  
 8. `model3/` – Linear Regression Model  
-9. `demployment/` – FastAPI Deployment with MLflow & HTML Form (`form.html`)  
+9. `demployment/` – FastAPI Deployment with MLflow & HTML Form (`template.html`)  
 
 ---
 
