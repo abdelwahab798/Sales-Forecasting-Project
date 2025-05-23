@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sales Forecasting</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            direction: rtl; /* لو عاوز الصفحة بالعربي */
+        }
+        h2 {
+            text-align: center;
+            color: #007acc;
+            margin-bottom: 30px;
+        }
+        form {
+            max-width: 500px;
+            background: white;
+            margin: 0 auto;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            padding: 12px;
+            margin-top: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #005fa3;
+        }
+        h3 {
+            max-width: 500px;
+            background: #e0f0ff;
+            margin: 20px auto 0 auto;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #005fa3;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0, 95, 163, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Input Data</h2>
+    <form action="/predict" method="post">
+        <label>Inventory Level:</label>
+        <input type="number" step="any" name="Inventory_Level" required>
+        
+        <label>Demand Forecast:</label>
+        <input type="number" step="any" name="Demand_Forecast" required>
+        
+        <label>Holiday/Promotion:</label>
+        <input type="number" name="Holiday_Promotion" required>
+        
+        <label>Month:</label>
+        <input type="number" name="month" required>
+        
+        <label>Rolling Mean 7:</label>
+        <input type="number" step="any" name="Rolling_Mean_7" required>
+        
+        <label>Rolling Std 7:</label>
+        <input type="number" step="any" name="Rolling_Std_7" required>
+        
+        <label>Rolling Mean 30:</label>
+        <input type="number" step="any" name="Rolling_Mean_30" required>
+        
+        <label>Rolling Std 30:</label>
+        <input type="number" step="any" name="Rolling_Std_30" required>
+        
+        <label>Seasonality:</label>
+        <input type="text" name="Seasonality" required>
+        
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if result is defined %}
+        <h3>{{ result }}</h3>
+    {% endif %}
+</body>
+</html>
